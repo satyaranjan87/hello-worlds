@@ -3,7 +3,17 @@
 
   tasks:
   - name: create docker image using war file
-    command: docker build -t tomcat-image:latest .
+    command: docker build -t tomcat-servers:latest .
     args:
       chdir: /home/ansadmin/jenkin/workspace/docker-ansible-k8s-scriptedPipeline
+  - name: create tag to image
+    command: docker tag tomcat-servers satyaranjan87/tomcat-servers
+
+  - name: push image on to dockerhub
+    command: docker push satyaranjan87/tomcat-servers
+
+  - name: remove docker images form ansible server
+    command: docker rmi tomcat-servers:latest satyaranjan87/tomcat-servers
+    ignore_errors: yes
+
 ...
