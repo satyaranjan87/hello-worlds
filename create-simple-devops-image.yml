@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+
+  tasks:
+  - name: create docker image using war file
+    command: docker build -t tomcat-image:latest .
+    args:
+      chdir: /home/ansadmin/jenkin/workspace/docker-ansible-k8s-scriptedPipeline
+...
