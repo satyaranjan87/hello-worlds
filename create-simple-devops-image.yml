@@ -5,7 +5,7 @@
   - name: create docker image using war file
     command: docker build -t tomcat-servers:latest .
     args:
-      chdir: /home/ansadmin/jenkin/workspace/docker-ansible-k8s-scriptedPipeline
+      chdir: /home/ansadmin/jenkin/workspace/docker-ansible-k8s
   - name: create tag to image
     command: docker tag tomcat-servers satyaranjan87/tomcat-servers
 
